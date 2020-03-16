@@ -1,0 +1,6 @@
+FROM ubuntu:latest
+# Install PING and TRACEROUTE
+RUN apt-get update && apt-get install -y iputils-ping
+RUN apt-get update && apt-get install -y inetutils-traceroute
+# Do something useless indefinetly so we can go in.
+ CMD tail -f /dev/null

@@ -1,0 +1,26 @@
+version: "3.7"
+networks:
+    # For communications between containers.
+    pinger_net:
+        name: pinger_net
+services:
+    pinger_a:
+        image: pinger
+        hostname: a
+        container_name: pinger_a
+        build:
+            context: .
+            dockerfile: Dockerfile.pinger
+        networks: 
+            - pinger_net
+    pinger_b:
+        image: pinger
+        hostname: b
+        container_name: pinger_b
+        build:
+            context: .
+            dockerfile: Dockerfile.pinger
+        networks: 
+            - pinger_net
+
+

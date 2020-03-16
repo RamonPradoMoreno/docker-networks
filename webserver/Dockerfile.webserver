@@ -1,0 +1,5 @@
+FROM httpd:2.4-alpine
+# Copy the curl format to the working directory of the container.
+COPY ./curl-format.txt .
+# Install CURL
+RUN apk add --no-cache curl

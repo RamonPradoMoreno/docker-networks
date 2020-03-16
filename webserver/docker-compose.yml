@@ -1,0 +1,30 @@
+version: "3.7"
+networks:
+    # For communications between containers.
+    webserver_net:
+        name: webserver_net
+services:
+    webserver_a:
+        image: webserver
+        hostname: a
+        container_name: webserver_a
+        build:
+            context: .
+            dockerfile: Dockerfile.webserver
+        networks: 
+            - webserver_net
+        ports:
+            - 9090:80
+    webserver_b:
+        image: webserver
+        hostname: b
+        container_name: webserver_b
+        build:
+            context: .
+            dockerfile: Dockerfile.webserver
+        networks: 
+            - webserver_net
+        ports:
+            - 9091:80
+
+
